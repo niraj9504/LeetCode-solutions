@@ -17,13 +17,9 @@ public:
             slow=slow->next;
             fast=fast->next->next;
         }
-        if(fast->next==NULL){
+        if(fast->next==NULL)
             slow->val=slow->next->val;
-            ListNode* todelete=slow->next;
-            slow->next=slow->next->next;
-            delete todelete;//otherwise memory leak
-            return head;
-        }
+        
         ListNode* todelete=slow->next;
         slow->next=slow->next->next;
         delete todelete;//otherwise memory leak
