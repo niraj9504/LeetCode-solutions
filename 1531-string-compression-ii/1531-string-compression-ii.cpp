@@ -18,7 +18,7 @@ public:
             cnt[s[j]-'a']++;
             int freq=cnt[s[j]-'a'];
             most=max(most,freq);
-            // if(k >= j - i + 1 - most)
+            //chars to be deleted => (j-i+1-most)
             ans=min(ans,1+compress(most) + solve(j+1,s,k-(j-i+1-most)));//total length=j-i+1 ,most+1 =>common
         }
         return dp[i][k]=ans;
