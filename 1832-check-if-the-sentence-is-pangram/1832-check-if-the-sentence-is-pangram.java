@@ -1,13 +1,13 @@
 class Solution {
-public:
-    bool checkIfPangram(string s) {
-        int p[26]={0};
-        for(auto it:s){
-            p[it-'a']++;
+    public boolean checkIfPangram(String sentence) {
+        int[] temp=new int[26];
+        for(int i=0;i<sentence.length();i++){
+            char c=sentence.charAt(i);
+            temp[c-'a']++;
         }
-        for(auto it:p){
+        for(int it:temp){
             if(it==0)return false;
         }
         return true;
     }
-};
+}
