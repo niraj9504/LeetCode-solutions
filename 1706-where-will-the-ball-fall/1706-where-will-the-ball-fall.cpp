@@ -6,9 +6,7 @@ public:
         if(c>=n || c<0)return -1;
         if(grid[r][c]==1){
             if(c+1>=n || grid[r][c+1]==-1)return -1;
-            else if(grid[r][c+1]==1){
-                return solve(r+1,c+1,grid);
-            }
+            return solve(r+1,c+1,grid);
         }
         if(c-1<0 || grid[r][c-1]==1)return -1;
         return solve(r+1,c-1,grid);
