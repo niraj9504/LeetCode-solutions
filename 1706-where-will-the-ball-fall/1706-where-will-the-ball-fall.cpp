@@ -3,7 +3,6 @@ public:
     int m,n;
     int solve(int r,int c,vector<vector<int>> &grid){
         if(r==m)return c;
-        if(c>=n || c<0)return -1;
         if(grid[r][c]==1){
             if(c+1>=n || grid[r][c+1]==-1)return -1;
             return solve(r+1,c+1,grid);
