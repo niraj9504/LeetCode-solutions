@@ -8,9 +8,8 @@ public:
         if(dp[i][j]!=-1)return dp[i][j];
         ll pick=solve(i+1,j+1,robot,posn)+abs(posn[j]-robot[i]);
         //here removing the extra calculation
-        int m=upper_bound(posn.begin(),posn.end(),posn[j])-posn.begin();
-        
-        ll not_pick=solve(i,m,robot,posn);
+        // int m=upper_bound(posn.begin(),posn.end(),posn[j])-posn.begin();
+        ll not_pick=solve(i,j+1,robot,posn);
         return dp[i][j]=min(pick,not_pick);
     }
     long long minimumTotalDistance(vector<int>& robot, vector<vector<int>>& fac) {
