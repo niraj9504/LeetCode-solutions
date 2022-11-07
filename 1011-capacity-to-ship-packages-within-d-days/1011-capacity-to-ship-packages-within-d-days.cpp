@@ -11,8 +11,8 @@ public:
             }
             j++;
         }
-        // cout<<cnt<<endl;
-        if(cnt<d)return true;
+        cnt++;
+        if(cnt<=d)return true;
         return false;
     }
     int shipWithinDays(vector<int>& w, int d) {
