@@ -2,11 +2,13 @@ class Solution {
 public:
     vector<int> findDuplicates(vector<int>& nums) {
         int n=nums.size();
-        unordered_set<int> map;
         vector<int> ans;
         for(auto i:nums){
-            if(map.find(i)!=map.end())ans.push_back(i);
-            map.insert(i);
+            int idx=abs(i)-1;//abs(i) give original value at nums(without -ve sign)
+            if(nums[idx]<0){
+                ans.push_back(abs(i));
+            }
+            nums[idx]=-nums[idx];//equal and -ve(it will remain same but -ve shows bool true if that position occurs twice)
         }
         return ans;
     }
