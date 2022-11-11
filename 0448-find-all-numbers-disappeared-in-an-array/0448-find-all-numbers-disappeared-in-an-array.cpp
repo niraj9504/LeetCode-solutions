@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<int> findDisappearedNumbers(vector<int>& nums) {
+        //O(1) space
         int n=nums.size();
         vector<int> ans;
         for(int i=0;i<n;i++){
