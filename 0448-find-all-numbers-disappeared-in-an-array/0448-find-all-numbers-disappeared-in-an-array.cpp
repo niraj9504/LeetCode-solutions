@@ -2,11 +2,16 @@ class Solution {
 public:
     vector<int> findDisappearedNumbers(vector<int>& nums) {
         int n=nums.size();
-        unordered_set<int> map(nums.begin(),nums.end());
-        nums.clear();
-        for(int i=1;i<=n;i++){
-            if(map.find(i)==map.end())nums.push_back(i);
+        vector<int> ans;
+        for(int i=0;i<n;i++){
+            if(nums[abs(nums[i])-1]>0)
+            nums[abs(nums[i])-1]=-nums[abs(nums[i])-1];
         }
-        return nums;
+        for(int i=1;i<=n;i++){
+            if(nums[i-1]>0){
+                ans.push_back(i);
+            }
+        }
+        return ans;
     }
 };
