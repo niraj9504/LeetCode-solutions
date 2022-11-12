@@ -4,9 +4,9 @@ public:
         int n=s.size();
         int ans=0;
         for(int i=0;i<n;i++){
-            if(i==0 || s[i]-'a'!=s[i-1]-'a'+1){
+            if(i==0 || s[i]!=s[i-1]+1){
                 int curr=1;
-                while(i+1<n && s[i]-'a'+1==s[i+1]-'a'){
+                while(i+1<n && s[i]+1==s[i+1]){
                     curr++;
                     i++;
                 }
