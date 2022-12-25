@@ -9,11 +9,12 @@ public:
         //for(auto it:nums)cout<<it<<" ";
         int m=q.size();//cout<<endl;
         for(int i=0;i<m;i++){
-            int idx=lower_bound(nums.begin(),nums.end(),q[i])-nums.begin();
+            int idx=upper_bound(nums.begin(),nums.end(),q[i])-nums.begin();
             // cout<<idx<<" ";
-            if(idx==n)q[i]=n;
-            else
-                q[i]=(nums[idx]==q[i])?idx+1:idx;
+            // if(idx==n)q[i]=n;
+            // else
+            //     q[i]=(nums[idx]==q[i])?idx+1:idx;
+            q[i]=idx;
         }
         return q;
     }
