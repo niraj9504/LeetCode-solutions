@@ -11,17 +11,13 @@ class Solution {
   public:
     int minOperation(string s) {
         // code here
-        int n=s.size(),ans=n;
-        for(int i=0;i<n;i++){
-            for(int j=i+1;j<n;j++){
-                if(s[j]==s[i]){
-                    int l=i,r=j,cnt=0;
-                    while(r<n && l<j && s[l++]==s[r++])cnt++;
-                    ans=min(ans,n-cnt+1);
-                }
+        int n=s.size();
+        for(int i=n/2-1;i>=0;i--){
+            if(s.substr(0,i+1)==s.substr(i+1,i+1)){
+                return (n-i);
             }
         }
-        return ans;
+        return n;
     }
 };
 
