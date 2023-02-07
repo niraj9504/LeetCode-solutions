@@ -4,9 +4,13 @@
 # select email from person p1 where  (select count(email)
 #                                   from
 #                                   person group by email) ;
-select distinct(p1.email) from
-person p1
-join
-person p2
-on p1.email=p2.email
-where p1.id!=p2.id;
+# select distinct(p1.email) from
+# person p1
+# join
+# person p2
+# on p1.email=p2.email
+# where p1.id!=p2.id;
+
+select email from person
+group by email
+having count(email)>1;
