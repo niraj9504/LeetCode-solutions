@@ -26,10 +26,11 @@ public:
                 if(node->right)q.push(node->right);
                 temp.push_back(node->val);
             }
-            if(r)ans.push_back(temp);
-            else{
-                ans.push_back({temp.rbegin(),temp.rend()});
-            }
+            if(!r)reverse(temp.begin(),temp.end());
+            ans.push_back(temp);
+            // else{
+            //     ans.push_back({temp.rbegin(),temp.rend()});
+            // }
             r=!r;
             temp.clear();
         }
