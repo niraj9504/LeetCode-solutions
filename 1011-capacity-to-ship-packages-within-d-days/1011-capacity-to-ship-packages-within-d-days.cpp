@@ -1,35 +1,31 @@
 class Solution {
 public:
-    bool check(vector<int> &w,int d,int mid){
-        int cnt=0;
-        int j=0,sum=0;
-        while(j<w.size()){
-            sum+=w[j];
-            if(sum>mid){
+    bool ifPoss(vector<int> &w,int d,int cap){
+        int cnt=1;
+        int sum=0;
+        for(int i=0;i<w.size();i++){
+            if(w[i]>cap)return false;
+            sum+=w[i];
+            if(sum>cap){
+                sum=w[i];
                 cnt++;
-                sum=w[j];
             }
-            j++;
         }
-        cnt++;
-        if(cnt<=d)return true;
-        return false;
+        return cnt<=d;
     }
     int shipWithinDays(vector<int>& w, int d) {
-        int n=w.size();
-        // sort(w.begin(),w.end());
-        int low=*max_element(w.begin(),w.end()) ,high=accumulate(w.begin(),w.end(),0);
-        int ans=high;
-        while(low<=high){
+        int sum=accumulate(w.begin(),w.end(),0);
+        int low=sum/d;
+        int high=sum;
+        while(low<high){
             int mid=(low+(high-low)/2);
-            if(check(w,d,mid)){
-                ans=mid;
-                high=mid-1;
+            if(ifPoss(w,d,mid)){
+                high=mid;
             }
             else{
                 low=mid+1;
             }
         }
-        return ans;
+        return low;
     }
 };
