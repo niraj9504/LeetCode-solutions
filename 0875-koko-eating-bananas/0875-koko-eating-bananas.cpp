@@ -1,20 +1,31 @@
 class Solution {
 public:
+    bool isPoss(int m,vector<int> &p,int h){
+        int cnt=0;
+        for(auto it:p){
+            if(it%m==0)
+                cnt+=(it/m);
+            else cnt+=((it/m)+1);
+            
+            if(cnt>h)return false;
+        }
+        return cnt<=h;
+    }
     int minEatingSpeed(vector<int>& p, int h) {
         int n=p.size();
-        int r=*max_element(p.begin(),p.end());
-        if(h==n)return r;
-        int l=1;
-        int total=0;
-        while (l < r) {
-            int m = (l + r) / 2, total = 0;
-            for (auto it : p)
-                total += (it + m - 1) / m;
-            if (total > h)
-                l = m + 1;
-            else
-                r = m;
+        int high=*max_element(p.begin(),p.end());
+        if(h==n)return high;
+        int low=1;
+        // int mid=low;
+        while(low<high){
+            int mid=(high+low)/2;
+            if(isPoss(mid,p,h)){
+                high=mid;
+            }
+            else{
+                low=mid+1;
+            }
         }
-        return l;
+        return low;
     }
 };
