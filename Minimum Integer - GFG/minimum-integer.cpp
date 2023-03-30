@@ -39,7 +39,7 @@ class Solution {
         // int x=lower_bound(a.begin(),a.end(),y)-a.begin();
         long long x=1e9;
         for(int i=0;i<n;i++){
-            if((long long)(n*1LL*a[i])>=sum && x>a[i])x=a[i];
+            if((n*1LL*a[i])>=sum && x>a[i])x=a[i];
         }
         return x;
     }
