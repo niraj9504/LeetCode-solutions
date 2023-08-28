@@ -2,12 +2,11 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int t) {
         int n=nums.size();
-        if(n<2)return {};
+        unordered_map<int,int> map;
         for(int i=0;i<n;i++){
             int x=t-nums[i];
-            for(int j=i+1;j<n;j++){
-                if(nums[j]==x)return {i,j};
-            }
+            if(map.find(x)!=map.end())return {i,map[x]};
+            map[nums[i]]=i;
         }
         return {};
     }
